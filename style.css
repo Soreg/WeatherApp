@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Itim');
+body {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/860008/LocalWeather_Background.png);
+  color: white;
+}
+
+.header {
+  font-family: Itim;
+  margin: 0 0 60px;
+}
+
+h1 {
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+
+#degree {
+  margin: 10px 0;
+}
+
+#clouds {
+  max-width: 100px;
+}
