@@ -47,24 +47,24 @@ $(document).ready(function() {
       //If statements for image -- Weathertype and time
       //Clear sky, day
       if (weatherType == 'clear sky') {
-        $("#clouds").attr("src", "https://s3-us-west-2.amazonaws.com/s.cdpn.io/860008/weather_clear.png");
+        $("#weatherState").attr("class", "wi wi-day-sunny");
       } else if (weatherType == 'scattered clouds' || weatherType == 'broken clouds') {
-        $("#clouds").attr("src", "https://s3-us-west-2.amazonaws.com/s.cdpn.io/860008/weather_cloudy.png");
+        $("#weatherState").attr("class", "wi wi-cloudy");
       } //Few clouds, day
       else if (weatherType == 'few clouds') {
-        $("#clouds").attr("src", "https://s3-us-west-2.amazonaws.com/s.cdpn.io/860008/weather_clearCloud.png");
+        $("#weatherState").attr("class", "wi wi-cloudy");
       } //Rain, day
       else if (weatherType == 'light intensity shower rain' || weatherType == 'shower rain' || weatherType == 'rain') {
-        $("#clouds").attr("src", "https://s3-us-west-2.amazonaws.com/s.cdpn.io/860008/weather_rain.png");
+        $("#weatherState").attr("class", "wi wi-rain");
       } //Thunderstorm, day & night
       else if (weatherType == 'thunderstorm') {
-        $("#clouds").attr("src", "https://s3-us-west-2.amazonaws.com/s.cdpn.io/860008/weather_storm.png");
+        $("#weatherState").attr("class", "wi wi-thunderstorm");
       } //Snow, day & night
       else if (weatherType == 'snow') {
-        $("#clouds").attr("src", "https://s3-us-west-2.amazonaws.com/s.cdpn.io/860008/weather_snow.png");
+        $("#weatherState").attr("class", "wi wi-snow");
       } //else -- mist, day & night
       else {
-        $("#clouds").attr("src", "https://s3-us-west-2.amazonaws.com/s.cdpn.io/860008/weather_mist.png");
+        $("#cloweatherStateuds").attr("class", "wi wi-fog");
       }
 
 

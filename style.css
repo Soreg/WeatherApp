@@ -18,6 +18,7 @@ h1 {
   margin: 10px 0;
 }
 
-#clouds {
-  max-width: 100px;
+#weatherState {
+  font-size: 5em;
+  margin-bottom: 20px;
 }
