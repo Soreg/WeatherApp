@@ -8,11 +8,12 @@ $(document).ready(function() {
     long = data2.lon;
 
     //get weather api
-    var api = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&appid=bfef8aa901bdd28808ec6832505b14dd';
+    var api = 'https://api.darksky.net/forecast/b1771da80a45a69cc2fcaf3cdbe9ab1a/' + lat + ',' + long;
+    console.log(api);
 
     //get JSON to get weather data
 
-    $.getJSON(api, function(data) {
+    /*$.getJSON(api, function(data) {
       var fTemp;
       var cTemp;
       var kTemp;
@@ -69,7 +70,7 @@ $(document).ready(function() {
 
 
 
-    });
+    });*/
 
   });
 
