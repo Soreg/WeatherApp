@@ -11,9 +11,18 @@ var skycons = new Skycons({"color": "white"});
     let country = data2.country;
     let city = data2.city;
     // Get weather api
-    var api = 'https://api.darksky.net/forecast/b1771da80a45a69cc2fcaf3cdbe9ab1a/' + lat + ',' + long + "?&units=auto";
+    $.ajax({
+               type: 'GET',
+               url: 'https://crossorigin.me/https://api.darksky.net/forecast/b1771da80a45a69cc2fcaf3cdbe9ab1a/' + lat + ',' + long + '?&units=auto',
+               processData: true,
+               data: {},
+               dataType: "json",
+               success: function (data) {
+                   processData(data);
+               }
+    });
     // Get weather data through JSON
-    $.getJSON(api, function(data) {
+    function processData(data){
 
       // Assign data
       let timezone = data.timezone;
@@ -66,7 +75,7 @@ var skycons = new Skycons({"color": "white"});
       }
 
 skycons.play();
-    });
+    };
   });
 
 });
