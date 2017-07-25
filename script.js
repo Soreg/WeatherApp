@@ -1,17 +1,52 @@
 $(document).ready(function() {
-  var lat;
-  var long;
+  let lat;
+  let long;
 
-  //Get JSON api for user location
-  $.getJSON("http://ip-api.com/json", function(data2) {
+  $.getJSON('http://ip-api.com/json', function(data2) {
     lat = data2.lat;
     long = data2.lon;
+    let country = data2.country;
+    let city = data2.city;
+    // Get weather api
+    var api = 'https://api.darksky.net/forecast/b1771da80a45a69cc2fcaf3cdbe9ab1a/' + lat + ',' + long + "?&units=auto";
 
-    //get weather api
-    var api = 'https://api.darksky.net/forecast/b1771da80a45a69cc2fcaf3cdbe9ab1a/' + lat + ',' + long;
-    console.log(api);
+    // Get weather data through JSON
+    $.getJSON(api, function(data) {
 
-    //get JSON to get weather data
+      // Assign data
+      let timezone = data.timezone;
+      let currentWeather = data.currently.summary;
+      var temp = data.currently.temperature;
+      let tempCalc = temp;
+      (data.flags.units === 'si') ? tempState = 1 : tempState = 2;
+      (tempState === 1) ? temp = temp + "101"+String.fromCharCode(176) +"C" : temp = temp + "101"+String.fromCharCode(176) +"F" ;
+
+      $('#degree').click(function() {
+        if(tempState === 1) {
+          tempCalc = (tempCalc * 9 / 5 + 32);
+          temp = tempCalc.toFixed(2) + "101"+String.fromCharCode(176) +"F";
+          console.log(tempCalc);
+          $('#degree').html(temp);
+          tempState = 2;
+        } else {
+          tempCalc = ((5/9) * (tempCalc-32));
+          temp = tempCalc.toFixed(2) + "101"+String.fromCharCode(176) +"C";
+          console.log(tempCalc);
+          $('#degree').html(temp);
+          tempState = 1;
+        }
+      });
+
+      $('#location').html('Current weather in: ' + city + ", " + country);
+      $('#weatherType').html(currentWeather);
+      $('#degree').html(temp);
+
+
+
+    });
+
+
+
 
     /*$.getJSON(api, function(data) {
       var fTemp;
