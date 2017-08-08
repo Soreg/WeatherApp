@@ -13,9 +13,10 @@ var skycons = new Skycons({"color": "white"});
     // Get weather api
     $.ajax({
                type: 'GET',
-               url: 'https://crossorigin.me/https://api.darksky.net/forecast/b1771da80a45a69cc2fcaf3cdbe9ab1a/' + lat + ',' + long + '?&units=auto',
+               dataType: 'jsonp',
                processData: true,
                data: {},
+               url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/b1771da80a45a69cc2fcaf3cdbe9ab1a/' + lat + ',' + long + '?&units=auto',
                dataType: "json",
                success: function (data) {
                    processData(data);
